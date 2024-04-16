@@ -162,9 +162,10 @@ header {
         }
         
         &__left {
+            text-align: center;
             @include respond-to('large')
             {
-                text-align: center;
+                text-align: left;
                 padding: 50px;
                 padding-left: 0;
             }
@@ -213,18 +214,25 @@ header {
     margin-top: 40px;
     display: flex;
     height: 50px;
+    justify-content: center;
+    align-items: center;
+    
+    @include respond-to('large')
+    {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
     
     &__logo {
         img {
             width: auto;
-            height: 100%;
+            height: 50px;
         }
     }
     
     &__text {
         padding-left: 25px;
         align-self: center;
-        flex: 1;
         font-size: 1.5rem;
         font-weight: 300;
     }
@@ -256,6 +264,10 @@ header {
         
         &:first-child {
             padding-left: 0;
+        }
+        
+        &:last-child {
+            padding-right: 0;
         }
         
         &:hover {
