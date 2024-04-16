@@ -1,14 +1,16 @@
 ﻿.button {
     border: 0;
-    border-radius: 3px;
+    border-radius: 4px;
     font-weight: 300;
     font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
     transition: 0.3s all;
     cursor: pointer;
     box-shadow: $shadow;
+    margin-right: 10px;
     
     &--cta {
-        background: $primary;
+        background: lighten($primary, 3%);
         color: white;
         border: 1px solid lighten($primary, 12%);
         font-size: 1.4rem;
@@ -20,6 +22,13 @@
             font-size: 0.7em;
             top: -1px;
         }
+    }
+    
+    &--secondary {
+        background: none;
+        border: 1px solid $primary;
+        box-shadow: none;
+        text-shadow: $shadow;
     }
     
     &:hover {

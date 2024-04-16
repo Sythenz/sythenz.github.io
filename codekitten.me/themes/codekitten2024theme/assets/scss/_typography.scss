@@ -1,5 +1,5 @@
 ﻿h1 {
-    font-size: 2.8rem;
+    font-size: 3.25rem;
     font-weight: 200;
     margin: $default-margin;
     text-shadow: $deep-shadow;
@@ -19,11 +19,25 @@ h3 {
     text-shadow: $deep-shadow;
 }
 
-p {
-    font-size: 1.2rem;
-    font-weight: 400;
+h4 {
+    font-size: 1.3rem;
+    font-weight: 300;
     margin: $default-margin;
+    text-shadow: $deep-shadow;
+}
+
+p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 1rem 0;
+    text-shadow: $deep-shadow;
     line-height: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: $primary;
 }
 
 small {

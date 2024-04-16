@@ -2,3 +2,6 @@ baseURL = 'https://codekitten.me/'
 languageCode = 'en-us'
 title = 'Codekitten.me | Home of a Shader Witch'
 theme = "codekitten2024theme"
+
+[Params]
+tagline = "Shader Witch, Technical Artist and cutesie goth who loves kittens. ️"

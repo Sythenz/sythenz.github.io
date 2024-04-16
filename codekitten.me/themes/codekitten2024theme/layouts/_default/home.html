@@ -1,7 +1,24 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h1><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h1>
-    {{ .Summary }}
-  {{ end }}
+    <section class="sect bg--primary">
+        <div class="sect__inner text--center flex--center">
+            <h1>Hi, I'm Alessa!</h1>
+            <p>{{ .Site.Params.tagline }} <br /> My website is currently under construction at the moment, please check back later!</p>
+            <p class="nomargin"><button class="button button--cta">Book Now <i class="fa-solid fa-cat"></i></button><button class="button button--cta button--secondary">About Me</i> </button></p>
+            <p class="nomargin"><small>[ Will be fun :3 ]</small></p>
+        </div>
+        <div class="sect__background"><img src="/hero.jpg" alt=""></div>
+        
+    </section>
+    
+    <section class="sect bg--background">
+    
+    </section>
+    
+    <section class="sect bg--altbackground">
+    
+    </section>
+    
+    <section class="sect bg--background">
+    
+    </section>
 {{ end }}
