@@ -8,8 +8,8 @@
 
 h2 {
     font-family: 'Work Sans', sans-serif;
-    font-size: 2rem;
-    font-weight: 400;
+    font-size: 2.7rem;
+    font-weight: 200;
     margin: $default-margin;
     text-shadow: $deep-shadow;
 }
@@ -26,6 +26,7 @@ h4 {
     font-family: 'Work Sans', sans-serif;
     font-size: 1.3rem;
     font-weight: 300;
+    line-height: 2rem;
     margin: $default-margin;
     text-shadow: $deep-shadow;
 }
@@ -42,12 +43,12 @@ p {
 a {
     font-family: 'Work Sans', sans-serif;
     text-decoration: none;
-    color: $primary;
+    color: lighten($primary, 15%);
 }
 
 small {
     font-size: 0.75rem;
-    color: darken(white, 20%);
+    color: darken(white, 15%);
     text-shadow: $deep-shadow;
 }
 

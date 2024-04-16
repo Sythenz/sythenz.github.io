@@ -1,17 +1,29 @@
 {{ define "main" }}
     <section class="sect bg--primary">
-        <div class="sect__inner text--center flex--center">
+        <div class="sect__inner flex--column text--center flex--center">
             <h1>Hi, I'm Alessa!</h1>
-            <p>{{ .Site.Params.tagline }} <br /> My website is currently under construction at the moment, please check back later!</p>
-            <p class="nomargin"><button class="button button--cta">About Me</i></button></p>
-            <p class="nomargin"><small>[ Will be fun! :3 ]</small></p>
+            <h4>{{ .Site.Params.tagline }}<br />Let's work together!</h4>
+            <p class="nomargin"><button class="button button--cta">Book Consultation</i> <i class="fa-solid fa-pen-nib"></i></button></p>
         </div>
-        <div class="sect__background"><img src="/hero.jpg" alt=""></div>
+        <div class="sect__background--lowopacity sect__background--fixed"><img src="/hero.jpg" alt=""></div>
         
     </section>
     
     <section class="sect bg--background">
-    
+        <div class="sect__inner flex--row">
+            <div class="sect__inner__left"><img class="pfp" src="/me.png" alt=""></div>
+            <div class="sect__inner__right">
+                <h2>About Me</h2>
+                <p>
+                    Hey there! My name is Alessa Baker, I'm a Technical Artist working in the games industry with 16 years Unreal Engine experience.
+                </p>
+                <p>
+                    I enjoy contributing and figuring out chaotic shader issues, creating tools to assist artists and coming up with creative solutions to problems
+                    that require a specific technical mindset.
+                </p>
+                <p>Current I'm working at <a href="http://noodlecatgames.com" target="_blank">Noodle Cat Games</a> but I am currently open to some consultation - so reach out!</p>
+            </div>
+        </div>
     </section>
     
     <section class="sect bg--altbackground">

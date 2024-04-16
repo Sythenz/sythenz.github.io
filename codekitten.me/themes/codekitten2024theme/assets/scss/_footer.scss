@@ -1,0 +1,104 @@
+﻿.footer {
+    position: relative;
+    background: #141414;
+    padding: 25px;
+
+    h4 {
+        color: #454545;
+    }
+
+    &__inner {
+        display: flex;
+        flex-flow: column;
+        @include respond-to('large')
+        {
+            flex-flow: row;
+        }
+        max-width: 1200px;
+        justify-content: stretch;
+        align-items: stretch;
+        margin: 0 auto;
+
+        h4 {
+            margin-top: 0;
+        }
+
+        &__left {
+            text-align: center;
+            @include respond-to('large')
+            {
+                text-align: left;
+                padding: 50px;
+                padding-left: 0;
+            }
+
+            flex: 3;
+            padding: 0;
+        }
+        &__center {
+            @include respond-to('large')
+            {
+                flex: 1;
+                padding: 50px;
+            }
+        }
+
+        &__right {
+            @include respond-to('large')
+            {
+                text-align: right;
+                padding: 50px;
+                padding-right: 0;
+            }
+            text-align: center;
+            flex: 1;
+            padding: 0;
+        }
+
+        p {
+            color: darken(white, 40%);
+            font-weight: 500;
+        }
+    }
+}
+
+.footer__nav {
+    &__item {
+        padding: 10px 0;
+        a {
+            color: white;
+            opacity: 0.4;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.codekittenlogo {
+    margin-top: 40px;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+
+    @include respond-to('large')
+    {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    &__logo {
+        img {
+            width: auto;
+            height: 50px;
+        }
+    }
+
+    &__text {
+        padding-left: 25px;
+        align-self: center;
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+}
