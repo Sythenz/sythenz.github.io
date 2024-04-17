@@ -1,36 +1,58 @@
 {{ define "main" }}
-    <section class="sect bg--primary">
-        <div class="sect__inner flex--column text--center flex--center">
+
+<div class="row hero">
+
+    <div class="wrapper text--center">
+        <div class="column">
             <h1>Hi, I'm Alessa!</h1>
             <h4>{{ .Site.Params.tagline }}<br />Let's work together!</h4>
-            <p class="nomargin"><button class="button button--cta">Book Consultation</i> <i class="fa-solid fa-pen-nib"></i></button></p>
+            <p><button class="button button--cta">Book Consultation</i> <i class="fa-solid fa-pen-nib"></i></button></p>
         </div>
-        <div class="sect__background--lowopacity sect__background--fixed"><img src="/hero.jpg" alt=""></div>
-        
-    </section>
+    </div>
     
-    <section class="sect bg--background">
-        <div class="sect__inner flex--row">
-            <div class="sect__inner__left"><img class="pfp" src="/me.png" alt=""></div>
-            <div class="sect__inner__right">
-                <h2>About Me</h2>
-                <p>
-                    Hey there! My name is Alessa Baker, I'm a Technical Artist working in the games industry with 16 years Unreal Engine experience.
-                </p>
-                <p>
-                    I enjoy contributing and figuring out chaotic shader issues, creating tools to assist artists and coming up with creative solutions to problems
-                    that require a specific technical mindset.
-                </p>
-                <p>Current I'm working at <a href="http://noodlecatgames.com" target="_blank">Noodle Cat Games</a> but I am currently open to some consultation - so reach out!</p>
-            </div>
+    <div class="bg bg--fixed bg--primary"><img src="/hero.jpg" alt=""></div>
+</div>
+
+<div class="row">
+    
+    <div class="column">
+        <img src="/me.png" alt="">
+    </div>
+    
+    <div class="column column--2">
+
+        <div class="column__inner text--left">
+            <h2>About Me</h2>
+            
+            <p>
+                Hey there! My name is Alessa Baker, I'm a Technical Artist working in the games industry with 16 years Unreal Engine experience.
+            </p>
+            
+            <p>
+                I enjoy contributing and figuring out chaotic shader issues, creating tools to assist artists and coming up with creative solutions to problems
+                that require a specific technical mindset.
+            </p>
+            
+            <p>Current I'm working at <a href="http://noodlecatgames.com" target="_blank">Noodle Cat Games</a> but I am currently open to some consultation - so reach out!</p>
         </div>
-    </section>
+
+    </div>
     
-    <section class="sect bg--altbackground">
-    
-    </section>
-    
-    <section class="sect bg--background">
-    
-    </section>
+    <div class="bg bg--secondary"></div>
+</div>
+
+
+<div class="hero row">
+
+    <div class="wrapper text--center">
+        <div class="column">
+            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, voluptate!</h4>
+            <p><button class="button button--cta">Book Consultation</i> <i class="fa-solid fa-pen-nib"></i></button></p>
+        </div>
+    </div>
+
+    <div class="bg bg--primary"></div>
+</div>
+
+
 {{ end }}
