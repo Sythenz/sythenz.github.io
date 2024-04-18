@@ -6,8 +6,8 @@
 
 .hero {
     position: relative;
-    padding-top: calc(50px + #{$headersize});
-    padding-bottom: 100px;
+    padding-top: calc(100px + #{$headersize});
+    padding-bottom: 150px;
     z-index: 0 !important;
 }
 
