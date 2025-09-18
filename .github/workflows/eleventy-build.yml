@@ -23,22 +23,24 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: '20'  # Set to your required Node version
+          cache: 'npm'  # Enable npm cache for faster builds
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci  # Use npm ci to install exactly what's in package-lock.json
 
+      # Step 4: Build the site based on the specified mode (construction or full)
       - name: Build site
         run: |
           if [ "${{ github.event.inputs.mode }}" = "construction" ]; then
-            npm run build:construction
+            npm run build:construction  # Runs the build in construction mode
           else
-            npm run build:full
+            npm run build:full  # Runs the full build for a live site
           fi
 
+      # Step 5: Deploy to GitHub Pages using the peaceiris action
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub
-          publish_dir: ./dist  # The directory where your built site is located
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for deployment
+          publish_dir: ./dist  # Directory containing the built site
