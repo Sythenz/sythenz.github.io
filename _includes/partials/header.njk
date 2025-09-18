@@ -17,6 +17,8 @@
 
     </div>
 
-    {% include "layouts/mobilesidebar.njk" %}
+    {% if nav %}
+        {% include "layouts/mobilesidebar.njk" %}
+    {% endif %}
 {% endmacro %}
 
