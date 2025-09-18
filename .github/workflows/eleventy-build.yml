@@ -29,9 +29,9 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      # Step 3: Install dependencies (skip for takedown)
+      # Step 3: Install dependencies (only if not takedown)
       - name: Install dependencies
-        if: ${{ github.event.inputs.mode != 'takedown' }}  # Only install if it's not takedown
+        if: ${{ github.event.inputs.mode != 'takedown' }}  # Skip if it's takedown
         run: npm ci
 
       # Step 4: Build the site based on the mode (release, wip, or takedown)
@@ -40,6 +40,7 @@ jobs:
           if [ "${{ github.event.inputs.mode }}" = "wip" ]; then
             npm run build:wip  # Builds the site in wip mode
           elif [ "${{ github.event.inputs.mode }}" = "takedown" ]; then
+            # For takedown mode, create a blank index.html
             echo "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Takedown</title><style>body { background-color: black; color: white; font-family: Arial, sans-serif; text-align: center; padding: 50px; }</style></head><body><h1>Nothing to see here...</h1></body></html>" > ./dist/index.html
           else
             npm run build:release  # Builds the full site in release mode
@@ -50,7 +51,7 @@ jobs:
         run: |
           echo 'www.codekitten.me' > ./dist/CNAME  # Replace with your domain
 
-      # Step 6: Deploy to GitHub Pages
+      # Step 6: Deploy to GitHub Pages (always deploy)
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
