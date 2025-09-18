@@ -4,19 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:release": "npx eleventy",
-    "build:wip": "ELEVENTY_MODE=construction npx eleventy",
-    "build:dev": "npx eleventy --serve",
-    "build:construction": "ELEVENTY_MODE=construction npx eleventy --serve"
+    "build:release": "cross-env ELEVENTY_MODE=release npx eleventy", 
+    "build:wip": "cross-env ELEVENTY_MODE=construction npx eleventy",
+    "build:dev": "cross-env ELEVENTY_MODE=dev npx eleventy --serve", 
+    "build:construction": "cross-env ELEVENTY_MODE=construction npx eleventy --serve"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "autoprefixer": "^10.4.21",
     "@11ty/eleventy": "^3.1.2",
     "@tailwindcss/postcss": "^4.1.13",
+    "autoprefixer": "^10.4.21",
+    "cross-env": "^10.0.0",
     "cssnano": "^7.1.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.13"

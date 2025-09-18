@@ -1,32 +1,6 @@
 
-{% include "partials/head.njk" %}
-
-<body class="bg-[var(--color-background)]" data-theme="">
-    
-    {% from "partials/header.njk" import header %}
-    {{ header(true) }}
-
-    {% include "sections/hero.njk" %}
-
-    {% from "sections/imagesection.njk" import image_section %}
-    {% call image_section("right", "30vh") %}
-    <h1>Test</h1>
-    {% endcall %}
-
-    {% call image_section("left", "70vh", "/assets/images/Blender_Sorcery_BG.png", "/assets/images/Blender_Sorcery_cauldron_noBG.png") %}
-    <h1>Test</h1>
-    {% endcall %}
-
-    {% call image_section("left", "50vh") %}
-    <h1>Test</h1>
-    {% endcall %}
-
-    {% call image_section("left", "60vh", "/assets/images/Technical_arts_BG.png", "/assets/images/Technical_arts_nodesk_noBG.png") %}
-    <h1>Test</h1>
-    {% endcall %}
-
-</body>
-
-    
-{% from "partials/footer.njk" import footer %}
-{{ footer(false) }}
+{% if currentMode == 'construction' %}
+    {% include "coming-soon.njk" %}
+{% else %}
+    {% include "base.njk" %}
+{% endif %}

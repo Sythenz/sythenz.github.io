@@ -7,16 +7,13 @@ import tailwindcss from '@tailwindcss/postcss';
 import autoprefixer from 'autoprefixer';
 
 export default function (eleventyConfig) {
-  const isConstruction = process.env.ELEVENTY_MODE === 'construction';
+  // Get the current mode from the environment variable
+  const currentMode = process.env.ELEVENTY_MODE || 'release'; // default to 'release' if no mode is set
+  
+  // Add global data for the current mode
+  eleventyConfig.addGlobalData("currentMode", currentMode);
 
-  // Add global data for construction mode
-  eleventyConfig.addGlobalData("comingSoon", isConstruction);
-
-  // Define conditional layout logic
-  eleventyConfig.addFilter('layoutForIndex', () => {
-    return isConstruction ? 'coming-soon.njk' : 'home.njk';
-  });
-
+  // Passthrough copies (if needed)
   eleventyConfig.addPassthroughCopy('assets/images');
   eleventyConfig.addPassthroughCopy('assets/main.js');
 

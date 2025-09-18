@@ -1,3 +1,3 @@
 ---
-layout: coming-soon.njk
+layout: home.njk
 ---
