@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:full": "npx eleventy && npx eleventy --serve",
-    "build:construction": "ELEVENTY_MODE=construction npx eleventy && npx eleventy --serve",
-    "build:dev": "npx eleventy --serve"
+    "build:release": "npx eleventy",  // Build full site (release mode)
+    "build:down": "ELEVENTY_MODE=construction npx eleventy",  // Build site in construction mode
+    "build:dev": "npx eleventy --serve",  // Build and serve full site in dev mode
+    "build:construction": "ELEVENTY_MODE=construction npx eleventy --serve"  // Build and serve site in construction mode
   },
   "keywords": [],
   "author": "",
