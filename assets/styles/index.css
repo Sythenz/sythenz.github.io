@@ -80,7 +80,7 @@
     }
 
     p {
-        @apply mb-4 text-base;
+        @apply text-base;
     }
 
     .social {

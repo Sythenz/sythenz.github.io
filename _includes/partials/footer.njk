@@ -1,18 +1,6 @@
-{% macro footer(copyrightonly=false) %}
+<footer class="bg-[var(--color-background-footer)] min-h-[30vh] flex flex-col justify-between">
+    <div class="container mx-auto">
 
-{% if copyrightonly %}
-    <footer class="bg-[var(--color-background-footer)] min-h-[30vh] flex flex-col justify-between">
-        <div class="container mx-auto">
-
-        </div>
-        {% include "partials/copyright.njk" %}
-    </footer>
-{% else %}
-    <footer class="bg-[var(--color-background-footer)] flex flex-col justify-between">
-        {% include "partials/copyright.njk" %}
-    </footer>
-{% endif %}
-
-</html>
-    
-{% endmacro %}
+    </div>
+    {% include "partials/copyright.njk" %}
+</footer>

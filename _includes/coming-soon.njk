@@ -5,8 +5,9 @@
     {% from "partials/header.njk" import header %}
     {{ header(false) }}
 
-    {% include "sections/comingsoonsection.njk" %}
+    <main class="grid grid-rows-1 min-h-screen grid-rows-[1fr, auto]">
+        {% include "sections/comingsoonsection.njk" %}
+        {% include "partials/copyright.njk" %}
+    </main>
 
 </body>
-
-{% include "partials/footer.njk" %}
