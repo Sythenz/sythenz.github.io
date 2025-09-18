@@ -1,4 +1,5 @@
 
+    
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,20 +16,39 @@
 <input type="checkbox" id="sidebarToggle" class="peer hidden">
 
 
-<body class="bg-[var(--color-background)]" data-theme="">
-    
-    
-    
+    <body class="bg-[var(--color-background)]" data-theme="">
+        
+        
+        
     <div id="header" class="header fixed top-0 left-0 right-0 flex items-center gap-8 z-50">
         
         <img src="/assets/images/CodekittenLogo.svg" alt="Codekitten Logo" class="codekitten-logo">
 
         
-            <nav class="flex gap-8 ml-auto list-none items-center"></nav>
-                
+            <nav class="flex gap-8 ml-auto list-none items-center">
+    
+    <li class="hidden uppercase text-sm lg:inline-block hover-opacity">
+        <a href="/">Home</a>
+    </li>
+    <li class="hidden uppercase text-sm lg:inline-block hover-opacity">
+        <a href="/about">Shader Witchcraft</a>
+    </li>
+    <li class="hidden uppercase text-sm lg:inline-block hover-opacity">
+        <a href="/contact">Tools Alchemy</a>
+    </li>
+    <li class="hidden uppercase text-sm lg:inline-block hover-opacity">
+        <a href="/store">Store</a>
+    </li>
+
+    <label for="sidebarToggle" class="inline-block lg:hidden px-4 cursor-pointer">
+        <i class="fa-solid fa-bars"></i>
+    </label>
+</nav>
+
+
             
             
-    <nav class="socials gap-2 list-none items-center flex">
+    <nav class="socials gap-2 list-none items-center hidden lg:flex">
         <li class="hover-scale  items-center justify-center h-full social">
             <a href="https://twitter.com/yourprofile" class="text-white hover:underline" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <svg width="24" height="24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M12 0a12 12 0 1012 12A12 12 0 0012 0zm0 23.52A11.52 11.52 0 1123.52 12 11.52 11.52 0 0112 23.52zm7.13-9.791c-.206.997-1.126 3.557-4.06 4.942l-1.179-1.325-1.988 2a7.338 7.338 0 01-5.804-2.978 2.859 2.859 0 00.65.123c.326.006.678-.114.678-.66v-5.394a.89.89 0 00-1.116-.89c-.92.212-1.656 2.509-1.656 2.509a7.304 7.304 0 012.528-5.597 7.408 7.408 0 013.73-1.721c-1.006.573-1.57 1.507-1.57 2.29 0 1.262.76 1.109.984.923v7.28a1.157 1.157 0 00.148.256 1.075 1.075 0 00.88.445c.76 0 1.747-.868 1.747-.868V9.172c0-.6-.452-1.324-.905-1.572 0 0 .838-.149 1.484.346a5.537 5.537 0 01.387-.425c1.508-1.48 2.929-1.902 4.112-2.112 0 0-2.151 1.69-2.151 3.96 0 1.687.043 5.801.043 5.801.799.771 1.986-.342 3.059-1.441Z"/></svg>
@@ -98,21 +118,182 @@
 </div>
 
 
-        <section class="relative grid h-screen overflow-hidden place-items-center">
+            <section class="relative grid h-[85vh] overflow-hidden place-items-center">
 
         <img src="assets/images/o_Alchemy_BG_No_FG.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center opacity-10 pointer-events-none" />
-        
-        <div class="relative grid grid-cols-1 w-full max-w-xl z-10 mt-[-50%] lg:max-w-xl lg:mt-0">
-            <div class="flex flex-col gap-4 col-span-2 lg:col-span-1 text-center px-10">
+        <img src="assets/images/o_Shader_Witch_White.png" class="layer scale-[0.9] md:scale-[1.1] lg:translate-x-[15%] translate-y-[34%] md:translate-y-[35%] lg:translate-y-[16%]" />
+
+        <div class="relative grid grid-cols-2 w-full max-w-xl z-10 mt-[-50%] lg:max-w-5xl lg:mt-0">
+            <div class="flex flex-col gap-4 col-span-2 lg:col-span-1 text-center lg:text-left px-10">
                 <h1>Hi, I'm Alessa!</h1>
-                <h2 class="text-xl">Website of Alessa "Codekitten" Baker - a Shader Witch, Technical Artist & cutesie Goth that loves Kittens.</h2>
-                <h2>My website is currently under construction at the moment, please check back later!</h2>
+                <h2>Website of Alessa "Codekitten" Baker. Shader Witch, Technical Artist & cutesie Goth that loves Kittens. <i class="fa-regular fa-heart"></i></h2>
+                <i class="place-self-center mt-3 fa-solid fa-angle-down"></i>
             </div>
+
+            <div class="hidden lg:inline-block"><!-- layout only --></div>
         </div>
 
     </section>
 
-</body>
+        
+        
 
+    
+
+    <section class="relative grid min-h-[30vh] h-full overflow-hidden place-items-center">
+
+        
+
+        
+
+        <div class="relative grid grid-cols-2 w-full max-w-xl z-10 lg:max-w-5xl lg:mt-0 ">
+
+            
+
+                <div class="hidden lg:inline-block"></div>
+
+                <div class="flex flex-col gap-4 col-span-2 lg:col-span-1 text-center lg:text-left px-10">
+                    
+        <h1>Test</h1>
+        
+                </div>
+
+            
+
+        </div>
+
+    </section>
+
+
+
+        
+
+    
+
+    <section class="relative grid min-h-[70vh] h-full overflow-hidden place-items-center">
+
+        
+            <img src="/assets/images/Blender_Sorcery_BG.png" alt="" aria-hidden="true"
+            class="absolute inset-0 w-full h-full object-cover object-center opacity-10 pointer-events-none" />
+        
+
+        
+
+            
+
+                <img src="/assets/images/Blender_Sorcery_cauldron_noBG.png" class="layer scale-[1.0] md:scale-[1.1] lg:translate-x-[10%] translate-y-[32%] md:translate-y-[32%] lg:translate-y-[0%]" />
+
+            
+
+        
+
+        <div class="relative grid grid-cols-2 w-full max-w-xl z-10 lg:max-w-5xl lg:mt-0  mt-[-50%] md:mt-[-25%] ">
+
+            
+
+                <div class="flex flex-col gap-4 col-span-2 lg:col-span-1 text-center lg:text-left px-10">
+                    
+        <h1>Test</h1>
+        
+                </div>
+
+                <div class="hidden lg:inline-block"></div>
+
+            
+
+        </div>
+
+    </section>
+
+
+
+        
+
+    
+
+    <section class="relative grid min-h-[50vh] h-full overflow-hidden place-items-center">
+
+        
+
+        
+
+        <div class="relative grid grid-cols-2 w-full max-w-xl z-10 lg:max-w-5xl lg:mt-0 ">
+
+            
+
+                <div class="flex flex-col gap-4 col-span-2 lg:col-span-1 text-center lg:text-left px-10">
+                    
+        <h1>Test</h1>
+        
+                </div>
+
+                <div class="hidden lg:inline-block"></div>
+
+            
+
+        </div>
+
+    </section>
+
+
+
+        
+
+    
+
+    <section class="relative grid min-h-[60vh] h-full overflow-hidden place-items-center">
+
+        
+            <img src="/assets/images/Technical_arts_BG.png" alt="" aria-hidden="true"
+            class="absolute inset-0 w-full h-full object-cover object-center opacity-10 pointer-events-none" />
+        
+
+        
+
+            
+
+                <img src="/assets/images/Technical_arts_nodesk_noBG.png" class="layer scale-[1.0] md:scale-[1.1] lg:translate-x-[10%] translate-y-[32%] md:translate-y-[32%] lg:translate-y-[0%]" />
+
+            
+
+        
+
+        <div class="relative grid grid-cols-2 w-full max-w-xl z-10 lg:max-w-5xl lg:mt-0  mt-[-50%] md:mt-[-25%] ">
+
+            
+
+                <div class="flex flex-col gap-4 col-span-2 lg:col-span-1 text-center lg:text-left px-10">
+                    
+        <h1>Test</h1>
+        
+                </div>
+
+                <div class="hidden lg:inline-block"></div>
+
+            
+
+        </div>
+
+    </section>
+
+
+
+    </body>
+
+        
+    
+    
+
+
+    <footer class="bg-[var(--color-background-footer)] flex flex-col justify-between">
+                <div class="bg-[var(--color-background-copyright)] p-3 text-center">
+            <p class="m-0 text-xs! text-white/20">&copy; 2025, Codekitten. All rights reserved.</p>
+            <p class="m-0 text-xs! text-white/20">Codekitten & the "Shader Witch" character, are copyright to Alessa Baker, Artist <a href="">Tobi Baraccani</a>.</p>
+        </div>
+    </footer>
+
+
+</html>
+    
 
 
