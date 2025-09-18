@@ -4,6 +4,10 @@ npm-debug.log
 yarn-debug.log
 yarn-error.log
 
+# Eleventy Output
+_dist/
+dist/
+
 # Eleventy & Tailwind CSS build files
 *.css.map
 *.js.map
