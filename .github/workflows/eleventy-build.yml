@@ -9,8 +9,9 @@ on:
         default: 'release'
         type: choice
         options:
-          - release  # Full site
-          - wip      # Under construction
+          - release     # Full site
+          - wip         # Under construction
+          - takedown    # Take down the site
 
 jobs:
   build-deploy:
@@ -32,16 +33,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Step 4: Build the site based on the mode (release or wip)
+      # Step 4: Build the site based on the mode (release, wip, takedown)
       - name: Build site
         run: |
           if [ "${{ github.event.inputs.mode }}" = "wip" ]; then
-            npm run build:wip
+            npm run build:wip  # Builds the site in wip mode
+          elif [ "${{ github.event.inputs.mode }}" = "takedown" ]; then
+            echo "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Takedown</title><style>body { background-color: black; color: white; font-family: Arial, sans-serif; text-align: center; padding: 50px; }</style></head><body><h1>Nothing to see here...</h1></body></html>" > ./dist/index.html
           else
-            npm run build:release
+            npm run build:release  # Builds the full site in release mode
           fi
 
-      # Step 5: Preserve the CNAME file
+      # Step 5: Preserve the CNAME file for custom domain
       - name: Add CNAME for custom domain
         run: |
           echo 'www.codekitten.me' > ./dist/CNAME  # Replace with your domain
