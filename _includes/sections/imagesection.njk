@@ -1,0 +1,50 @@
+{% macro image_section(position="left", height="50vh", background="", foreground="", foregroundtransform="layer scale-[1.0] md:scale-[1.1] lg:translate-x-[10%] translate-y-[32%] md:translate-y-[32%] lg:translate-y-[0%]") %}
+
+    {% set contentclasses="flex flex-col gap-4 col-span-2 lg:col-span-1 text-center lg:text-left px-10" %}
+
+    <section class="relative grid min-h-[{{ height }}] h-full overflow-hidden place-items-center">
+
+        {% if background %}
+            <img src="{{ background }}" alt="" aria-hidden="true"
+            class="absolute inset-0 w-full h-full object-cover object-center opacity-10 pointer-events-none" />
+        {% endif %}
+
+        {% if foreground %}
+
+            {% if position == "left" %}
+
+                <img src="{{ foreground }}" class="{{ foregroundtransform }}" />
+
+            {% else %}
+
+                <img src="{{ foreground }}" class="{{ foregroundtransform }}" />
+
+            {% endif %}
+
+        {% endif %}
+
+        <div class="relative grid grid-cols-2 w-full max-w-xl z-10 lg:max-w-5xl lg:mt-0 {% if foreground %} mt-[-50%] md:mt-[-25%] {% endif %}">
+
+            {% if position == "left" %}
+
+                <div class="{{ contentclasses | safe }}">
+                    {{ caller() }}
+                </div>
+
+                <div class="hidden lg:inline-block"></div>
+
+            {% else %}
+
+                <div class="hidden lg:inline-block"></div>
+
+                <div class="{{ contentclasses | safe }}">
+                    {{ caller() }}
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+{% endmacro %}

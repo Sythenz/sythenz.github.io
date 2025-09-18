@@ -1,0 +1,44 @@
+name: Build & Deploy Eleventy Site
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Deployment mode'
+        required: true
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - construction
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: |
+          if [ "${{ github.event.inputs.mode }}" = "construction" ]; then
+            npm run build:construction
+          else
+            npm run build:full
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub
+          publish_dir: ./dist  # The directory where your built site is located

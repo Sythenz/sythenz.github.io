@@ -1,0 +1,22 @@
+{
+  "name": "codekitten2025website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:full": "npx eleventy && npx eleventy --serve",
+    "build:construction": "ELEVENTY_MODE=construction npx eleventy && npx eleventy --serve",
+    "build:dev": "npx eleventy --serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@tailwindcss/postcss": "^4.1.13",
+    "cssnano": "^7.1.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13"
+  }
+}

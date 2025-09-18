@@ -1,0 +1,97 @@
+@layer theme, base, components, utilities;
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+
+@theme {
+    --font-sans: "Work Sans", ui-sans-serif, system-ui;
+    --color-brand-primary: #b85787;
+    --color-brand-secondary: #b85787;
+    --color-brand-header: var(--color-brand-primary);
+    --color-separator: color-mix(in srgb, var(--color-brand-primary) 80%, white 15%);
+    --color-brand-warning: #be9904;
+    --color-brand-info: #1d80d1;
+    --color-brand-success: #409443;
+    --color-brand-error: #da3c30;
+    --color-background: #121212;
+    --color-background-alt: #141414;
+    --color-background-footer: #080808;
+    --color-background-copyright: #050505;
+}
+
+.light, [data-theme="light"] {
+  --color-brand-primary: #202020;
+  --color-brand-secondary: #b85787;
+  --color-brand-header: #2b2b2b;
+  --color-brand-warning: #be9904;
+  --color-brand-info: #1d80d1;
+  --color-brand-success: #409443;
+  --color-brand-error: #da3c30;
+  --color-background: #bdbdbd;
+}
+
+@layer base {
+    
+    body, html {
+        @apply font-sans text-white bg-[var(--color-background)];
+    }
+
+}
+
+@layer utilities {
+
+    .font-awesome-social {
+        @apply align-[-0.08em] text-xl leading-none rounded-sm p-2 border border-white/10 hover:border-white/40;
+    }
+
+    .codekitten-logo {
+        @apply h-full w-auto block translate-y-[0.1em] translate-x-[0.1em];
+    }
+
+    .sidebar {
+        @apply border-l-1 border-[var(--color-separator)];
+    }
+
+    .header-scrolled {
+        @apply bg-[var(--color-brand-header)] h-16 p-4 transition-all duration-200 ease-in-out;
+    }
+
+    .header {
+        @apply h-28 p-8 px-12 transition-all duration-200 ease-in-out;
+    }
+
+    .hover-opacity {
+        @apply opacity-50 hover:opacity-100 transition-opacity duration-200 ease-in-out;
+    }
+
+    .hover-scale {
+        @apply transform transition-transform duration-100 ease-in-out hover:scale-110;
+    }
+
+    .layer {
+        @apply absolute inset-0 w-full h-full object-contain pointer-events-none transition-transform duration-300;
+    }
+
+    h1 {
+        @apply text-4xl font-thin;
+    }
+
+    p {
+        @apply mb-4 text-base;
+    }
+
+    .social {
+        @apply p-1.5 border rounded-sm border-white/20 hover:border-white/50 transition-all duration-200 ease-in-out;
+    }
+
+    section {
+        @apply odd:bg-[var(--color-background-alt)] even:bg-[var(--color-background)];
+    }
+
+    a {
+        @apply text-white/40 font-normal hover:text-white/100 transition-colors duration-200 ease-in-out;
+    }
+}

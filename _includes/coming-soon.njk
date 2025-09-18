@@ -1,0 +1,12 @@
+{% include "partials/head.njk" %}
+
+<body class="bg-[var(--color-background)]" data-theme="">
+    
+    {% from "partials/header.njk" import header %}
+    {{ header(false) }}
+
+    {% include "sections/comingsoonsection.njk" %}
+
+</body>
+
+{% include "partials/footer.njk" %}
