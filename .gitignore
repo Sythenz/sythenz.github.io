@@ -30,10 +30,6 @@ logs/
 .vscode/
 .idea/
 
-# Npm/NodeJS specific
-package-lock.json
-yarn.lock
-
 # Temporary build files (optional based on your setup)
 .sass-cache/
 .cache/
