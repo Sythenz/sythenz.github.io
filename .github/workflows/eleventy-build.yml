@@ -40,7 +40,7 @@ jobs:
             npm run build:wip  # Builds the site in wip mode
           elif [ "${{ github.event.inputs.mode }}" = "takedown" ]; then
             # For takedown mode, create a blank index.html with Work Sans and thin text
-            echo "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Takedown</title><link href='https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap' rel='stylesheet'><style>body { background-color: black; color: white; font-family: 'Work Sans', sans-serif; font-weight: 100; text-align: center; padding: 50px; font-size: 1rem; }</style></head><body><h3>Nothing to see here...</h3></body></html>" > ./dist/index.html
+            echo "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Takedown</title><link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'><link href='https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap' rel='stylesheet'><style>body { background-color: black; color: white; font-family: 'Work Sans', sans-serif; font-weight: 100; text-align: center; padding: 50px; font-size: 1rem; }</style></head><body><h3>Nothing to see here...</h3><h3>:3 <i class="fa-regular fa-heart"></i></h3></body></html>" > ./dist/index.html
           else
             npm run build:release  # Builds the full site in release mode
           fi
