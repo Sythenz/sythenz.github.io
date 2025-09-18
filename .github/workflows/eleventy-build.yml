@@ -9,9 +9,9 @@ on:
         default: 'release'
         type: choice
         options:
-          - release     # Full site
-          - wip         # Under construction
-          - takedown    # Take down the site
+          - release  # Full site
+          - wip      # Under construction
+          - takedown # Takedown mode
 
 jobs:
   build-deploy:
@@ -26,12 +26,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: '20'  # Ensure the version matches your local setup
+          cache: 'npm'        # Enable npm cache for faster builds
 
-      # Step 3: Install dependencies (only if not takedown)
+      # Step 3: Install dependencies
       - name: Install dependencies
-        if: ${{ github.event.inputs.mode != 'takedown' }}  # Skip if it's takedown
         run: npm ci
 
       # Step 4: Build the site based on the mode (release, wip, or takedown)
@@ -40,18 +39,18 @@ jobs:
           if [ "${{ github.event.inputs.mode }}" = "wip" ]; then
             npm run build:wip  # Builds the site in wip mode
           elif [ "${{ github.event.inputs.mode }}" = "takedown" ]; then
-            # For takedown mode, create a blank index.html
-            echo "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Takedown</title><style>body { background-color: black; color: white; font-family: Arial, sans-serif; text-align: center; padding: 50px; }</style></head><body><h1>Nothing to see here...</h1></body></html>" > ./dist/index.html
+            # For takedown mode, create a blank index.html with Work Sans and thin text
+            echo "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Takedown</title><link href='https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap' rel='stylesheet'><style>body { background-color: black; color: white; font-family: 'Work Sans', sans-serif; font-weight: 100; text-align: center; padding: 50px; font-size: 2rem; }</style></head><body><h1>Nothing to see here...</h1></body></html>" > ./dist/index.html
           else
             npm run build:release  # Builds the full site in release mode
           fi
 
-      # Step 5: Add CNAME for custom domain (always add CNAME)
+      # Step 5: Preserve the CNAME file for custom domain
       - name: Add CNAME for custom domain
         run: |
           echo 'www.codekitten.me' > ./dist/CNAME  # Replace with your domain
 
-      # Step 6: Deploy to GitHub Pages (always deploy)
+      # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
