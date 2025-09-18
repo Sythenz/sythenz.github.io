@@ -29,11 +29,12 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      # Step 3: Install dependencies
+      # Step 3: Install dependencies (skip for takedown)
       - name: Install dependencies
+        if: ${{ github.event.inputs.mode != 'takedown' }}  # Only install if it's not takedown
         run: npm ci
 
-      # Step 4: Build the site based on the mode (release, wip, takedown)
+      # Step 4: Build the site based on the mode (release, wip, or takedown)
       - name: Build site
         run: |
           if [ "${{ github.event.inputs.mode }}" = "wip" ]; then
@@ -44,7 +45,7 @@ jobs:
             npm run build:release  # Builds the full site in release mode
           fi
 
-      # Step 5: Preserve the CNAME file for custom domain
+      # Step 5: Add CNAME for custom domain (always add CNAME)
       - name: Add CNAME for custom domain
         run: |
           echo 'www.codekitten.me' > ./dist/CNAME  # Replace with your domain
