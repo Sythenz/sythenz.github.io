@@ -48,7 +48,7 @@
     }
 
     .codekitten-logo {
-        @apply h-full w-auto block translate-y-[0.1em] translate-x-[0.1em];
+        @apply h-full w-auto block translate-x-[4.8%] translate-y-[7.7%];
     }
 
     .sidebar {
@@ -60,7 +60,7 @@
     }
 
     .header {
-        @apply h-28 p-8 px-12 transition-all duration-200 ease-in-out;
+        @apply h-32 p-10 px-12 transition-all duration-200 ease-in-out;
     }
 
     .hover-opacity {
