@@ -30,7 +30,7 @@
     --social-gap: calc(var(--spacing) * 2);
     --opacity-background: 0.1;
     --opacity-hover: var(--link);
-    --text-nav: var(--text-xs);
+    --text-nav: var(--text-sm);
     --text-main: 1rem;
     --text-h4: var(--text-lg);
     --text-h3: var(--text-xl);
@@ -83,8 +83,8 @@
         @apply h-32 p-10 px-12 transition-all duration-200 ease-in-out;
     }
 
-    a.header {
-        @apply text-[var(--link-header)]! hover:text-white/100! transition-colors duration-200 ease-in-out;
+    header a {
+        @apply text-[var(--link-header)]! hover:text-white/100! transition-colors duration-200 ease-in-out;   
     }
     
     .hover-opacity {
