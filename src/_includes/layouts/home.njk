@@ -7,11 +7,9 @@
 
       {% include "partials/hero.njk" %}
 
+      {% include "partials/about.njk" %}
+      
       {% from "macros/imagesection.njk" import image_section %}
-
-      {% call image_section("right", "h-[30vh]") %}
-        <h1>Test</h1>
-      {% endcall %}
 
       {% call image_section("left", "h-[70vh]", "/images/Blender_Sorcery_BG.png", "/images/Blender_Sorcery_cauldron_noBG.png") %}
         <h1>Test</h1>
