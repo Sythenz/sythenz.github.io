@@ -1,0 +1,6 @@
+[
+  { "name": "Home", "url": "/" },
+  { "name": "Shader Witchcraft", "url": "/shader-witchcraft/" },
+  { "name": "Tools Alchemy", "url": "/tools-alchemy/" },
+  { "name": "Store", "url": "http://mitosaurus.com/pages/codekitten", "target": "_blank" }
+]

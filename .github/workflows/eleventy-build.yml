@@ -14,45 +14,64 @@ on:
           - takedown # Takedown mode
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      # Step 2: Set up Node.js with a specific version and cache npm dependencies
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Ensure the version matches your local setup
-          cache: 'npm'        # Enable npm cache for faster builds
-
-      # Step 3: Install dependencies
+          node-version: '20'
+          cache: 'npm'
       - name: Install dependencies
         run: npm ci
-
-      # Step 4: Build the site based on the mode (release, under-construction, or takedown)
       - name: Build site
         run: |
           if [ "${{ github.event.inputs.mode }}" = "under-construction" ]; then
-            npm run build:wip  # Builds the site in wip mode
+            npm run build:wip
           elif [ "${{ github.event.inputs.mode }}" = "takedown" ]; then
-            # For takedown mode, create a blank index.html with Work Sans and thin text
-            echo "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Takedown</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"><link href='https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap' rel='stylesheet'><style>body { background-color: black; color: white; font-family: 'Work Sans', sans-serif; font-weight: 100; text-align: center; padding: 50px; font-size: 1rem; }</style></head><body><h3>Nothing to see here...</h3><h3>:3 <i class="fa-regular fa-heart"></i></h3></body></html>" > ./site/index.html
+            echo "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Takedown</title><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\" crossorigin=\"anonymous\"><link href='https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap' rel='stylesheet'><style>body { background-color: black; color: white; font-family: 'Work Sans', sans-serif; font-weight: 100; text-align: center; padding: 50px; font-size: 1rem; }</style></head><body><h3>Nothing to see here...</h3><h3>:3 <i class=\"fa-regular fa-heart\"></i></h3></body></html>" > ./site/index.html
           else
-            npm run build:release  # Builds the full site in release mode
+            npm run build:release
           fi
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: ./site
 
-      # Step 5: Preserve the CNAME file for custom domain
-      - name: Add CNAME for custom domain
+  cname:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Create CNAME file
         run: |
-          echo 'www.codekitten.me' > ./site/CNAME  # Replace with your domain
+          mkdir -p ./site
+          echo 'www.codekitten.me' > ./site/CNAME
+      - name: Upload CNAME artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cname
+          path: ./site/CNAME
 
-      # Step 6: Deploy to GitHub Pages
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build, cname]
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: ./site
+      - name: Download CNAME artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: cname
+          path: ./site
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site  # Deploy from the site folder
+          publish_dir: ./site

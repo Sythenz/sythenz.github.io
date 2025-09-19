@@ -19,6 +19,9 @@ function setGlobalData(eleventyConfig) {
 
   eleventyConfig.addGlobalData("privacypolicy", "");
   eleventyConfig.addGlobalData("cookiepolicy", "");
+
+  // Add debug data directly for troubleshooting
+  eleventyConfig.addGlobalData("debug", { message: "Hello from eleventy.config.js!" });
 }
 
 export default function (eleventyConfig) {

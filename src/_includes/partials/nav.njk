@@ -1,17 +1,10 @@
 <nav style="font-size: var(--text-nav)" class="flex gap-8 ml-auto list-none items-center">
-    
-    <li class="hidden uppercase lg:inline-block hover-opacity">
-        <a href="/">Home</a>
-    </li>
-    <li class="hidden uppercase lg:inline-block hover-opacity">
-        <a href="/shader-witchcraft/">Shader Witchcraft</a>
-    </li>
-    <li class="hidden uppercase lg:inline-block hover-opacity">
-        <a href="/tools-alchemy/">Tools Alchemy</a>
-    </li>
-    <li class="hidden uppercase lg:inline-block hover-opacity">
-        <a target="_blank" rel="noopener noreferrer" href="https://mitosaurus.com/pages/codekitten">Store</a>
-    </li>
+
+    {% for item in sitenav %}
+        <li class="hidden uppercase lg:inline-block hover-opacity">
+            <a href="{{ item.url }}"{% if item.target %} target="{{ item.target }}" rel="noopener noreferrer"{% endif %}>{{ item.name }}</a>
+        </li>
+    {% endfor %}
 
     <label for="sidebarToggle" class="inline-block lg:hidden px-4 cursor-pointer">
         <i class="fa-solid fa-bars"></i>

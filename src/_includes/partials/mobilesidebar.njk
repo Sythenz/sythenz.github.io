@@ -3,10 +3,9 @@
     
     <div class="flex flex-col justify-between pt-42 h-full">
         <nav class="flex flex-col gap-6">
-            <a href="/" class="text-white uppercase px-16">Home</a>
-            <a href="/about" class="text-white uppercase px-16">Shader Witchcraft</a>
-            <a href="/contact" class="text-white uppercase px-16">Tools Alchemy</a>
-            <a href="/store" class="text-white uppercase px-16">Store</a>
+             {% for item in sitenav %}
+            <a href="{{ item.url }}" class="text-white uppercase px-16">{{ item.name }}</a>
+            {% endfor %}
         </nav>
 
         <div class="border-t-1 border-[var(--color-separator)] p-4">

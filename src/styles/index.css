@@ -99,16 +99,16 @@
         @apply absolute inset-0 w-full h-full object-contain pointer-events-none transition-transform duration-300;
     }
 
-    h1 {
-        font-size: var(--text-h1);
-        font-weight: var(--font-h1);
-    }
-
     p {
         font-size: var(--text-main);
         color: var(--color-text);
     }
 
+    h1 {
+        font-size: var(--text-h1);
+        font-weight: var(--font-h1);
+        text-shadow: var(--text-shadow-lg);
+    }
     h2 {
         font-size: var(--text-h2);
     }
@@ -116,7 +116,7 @@
     h3 {
         font-size: var(--text-h3);
     }
-    
+
     h4 {
         font-size: var(--text-h4);
     }

@@ -1,6 +1,8 @@
 {% if currentMode == 'construction' %}
+  {% set nav = false %} 
   {% include "layouts/landing.njk" %}
 {% else %}
+    {% set nav = true %} 
     {% extends "layouts/base.njk" %}
             
     {% block content %}
