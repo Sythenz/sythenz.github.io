@@ -68,7 +68,7 @@
     }
 
     .codekitten-logo {
-        @apply h-full w-auto block translate-x-[4.8%] translate-y-[7.7%];
+        @apply h-full w-auto block translate-x-[3.0%] translate-y-[7.7%];
     }
 
     .sidebar {

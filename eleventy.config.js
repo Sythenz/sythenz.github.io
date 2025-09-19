@@ -15,7 +15,7 @@ function setGlobalData(eleventyConfig) {
 
   eleventyConfig.addGlobalData("tagline_full", "Website of Alessa \"Codekitten\" Baker - Shader Witch, Technical Artist and cutesie goth who loves kittens <i class=\"fa-regular fa-heart\"></i>");
   eleventyConfig.addGlobalData("tagline_short", "Shader Witch, Technical Artist & cutesie Goth that loves Kittens.");
-  eleventyConfig.addGlobalData("tagline_short-heart","Shader Witch, Technical Artist & cutesie Goth that loves Kittens. <i class=\"fa-regular fa-heart\"></i>");
+  eleventyConfig.addGlobalData("tagline_short_heart","Shader Witch, Technical Artist & cutesie Goth that loves Kittens. <i class=\"fa-regular fa-heart\"></i>");
 
   eleventyConfig.addGlobalData("privacypolicy", "");
   eleventyConfig.addGlobalData("cookiepolicy", "");
