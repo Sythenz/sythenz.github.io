@@ -14,8 +14,19 @@ on:
           - takedown # Takedown mode
 
 jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Remove debug files from src
+        run: |
+          rm -rf ./src/debug-*
+          rm -rf ./src/data-debug.njk
+
   build:
     runs-on: ubuntu-latest
+    needs: cleanup
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -43,6 +54,7 @@ jobs:
 
   cname:
     runs-on: ubuntu-latest
+    needs: cleanup
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
