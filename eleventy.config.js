@@ -6,10 +6,10 @@ import postcss from 'postcss';
 import tailwindcss from '@tailwindcss/postcss';
 import autoprefixer from 'autoprefixer';
 
-export default function (eleventyConfig) {
+function setGlobalData(eleventyConfig) {
   // Get the current mode from the environment variable
   const currentMode = process.env.ELEVENTY_MODE || 'release'; // default to 'release' if no mode is set
-  
+
   // Add global data for the current mode
   eleventyConfig.addGlobalData("currentMode", currentMode);
 
@@ -19,10 +19,21 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addGlobalData("privacypolicy", "");
   eleventyConfig.addGlobalData("cookiepolicy", "");
-  
-  // Passthrough copies (if needed)
+}
+
+export default function (eleventyConfig) {
+  setGlobalData(eleventyConfig);
+
   eleventyConfig.addPassthroughCopy('src/images');
   eleventyConfig.addPassthroughCopy('src/main.js');
+
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/posts/*.md");
+  });
+
+  eleventyConfig.addNunjucksFilter("filterByTag", function(posts, tag) {
+    return posts.filter(post => post.data.tags && post.data.tags.includes(tag));
+  });
 
   // Tailwind CSS processing
   eleventyConfig.on('eleventy.before', async () => {
