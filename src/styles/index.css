@@ -20,7 +20,10 @@
     --color-background-alt: #141414;
     --color-background-footer: #080808;
     --color-background-copyright: #050505;
-    --link: rgba(255,255,255,0.5);
+    --color-text: rgba(255,255,255,0.8);
+    --color-text-bold: rgba(255,255,255,1);
+    --link-header: rgba(255,255,255,0.5);
+    --link: color-mix(in srgb, var(--color-brand-primary), white 30%);
     --link-weight: 400;
     --social-scale-offset: 1.0;
     --social-padding-offset: 4;
@@ -29,15 +32,16 @@
     --opacity-hover: var(--link);
     --text-nav: var(--text-xs);
     --text-main: 1rem;
-    --text-h2: 1.125rem;
-    --text-h1: 2.4rem;
+    --text-h4: var(--text-lg);
+    --text-h3: var(--text-xl);
+    --text-h2: var(--text-3xl);
+    --text-h1: var(--text-5xl);
     --font-h1: 100;
     --header-padding-scrolled: calc(var(--spacing)*4);
 }
 
 .light, [data-theme="lowvision"] {
     --opacity-background: 0.05;
-    --link:rgba(255,255,255,0.7);
     --link-weight: 500;
     --social-scale-offset: 1.2;
     --social-gap: calc(var(--spacing) * 4);
@@ -79,6 +83,10 @@
         @apply h-32 p-10 px-12 transition-all duration-200 ease-in-out;
     }
 
+    a.header {
+        @apply text-[var(--link-header)]! hover:text-white/100! transition-colors duration-200 ease-in-out;
+    }
+    
     .hover-opacity {
         @apply opacity-[var(--opacity-hover)] hover:opacity-100 transition-opacity duration-200 ease-in-out;
     }
@@ -98,10 +106,19 @@
 
     p {
         font-size: var(--text-main);
+        color: var(--color-text);
     }
 
     h2 {
         font-size: var(--text-h2);
+    }
+
+    h3 {
+        font-size: var(--text-h3);
+    }
+    
+    h4 {
+        font-size: var(--text-h4);
     }
 
     .social {
@@ -118,5 +135,10 @@
 
     a.footer-link {
         @apply text-white/20 font-[var(--link-weight)] hover:text-white/100 transition-colors duration-200 ease-in-out;
+    }
+
+    b {
+        @apply font-semibold;
+        color: var(--color-text-bold);
     }
 }

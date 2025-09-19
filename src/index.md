@@ -1,3 +1,3 @@
 ---
-layout: layouts/home.njk
+layout: "layouts/home.njk"
 ---
