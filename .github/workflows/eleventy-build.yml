@@ -98,6 +98,10 @@ jobs:
         with:
           name: cname
           path: ./site
+      - name: Remove debug files from site output
+        run: |
+          rm -rf ./site/debug-*
+          rm -rf ./site/data-debug*
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
