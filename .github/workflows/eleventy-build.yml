@@ -13,9 +13,25 @@ on:
           - under-construction # Under construction
           - takedown # Takedown mode
 
+
 jobs:
+  clear-gh-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - name: Remove all files from gh-pages branch
+        run: |
+          git rm -rf .
+          git clean -fxd
+          git commit -am "Clear gh-pages branch before deploy" || echo "Nothing to commit"
+          git push origin gh-pages || echo "Nothing to push"
+
   cleanup:
     runs-on: ubuntu-latest
+    needs: clear-gh-pages
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
