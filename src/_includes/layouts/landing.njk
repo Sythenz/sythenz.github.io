@@ -1,0 +1,13 @@
+{% include "partials/head.njk" %}
+
+<body class="bg-[var(--color-background)]" data-theme="">
+    
+    {% from "macros/header.njk" import header %}
+    {{ header(false) }}
+
+    <main class="grid grid-rows-1 min-h-screen grid-rows-[1fr, auto]">
+    {% include "partials/comingsoonsection.njk" %}
+    {% include "partials/copyright.njk" %}
+    </main>
+
+</body>

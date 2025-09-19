@@ -16,15 +16,18 @@ export default function (eleventyConfig) {
   eleventyConfig.addGlobalData("tagline_full", "Website of Alessa \"Codekitten\" Baker - Shader Witch, Technical Artist and cutesie goth who loves kittens <i class=\"fa-regular fa-heart\"></i>");
   eleventyConfig.addGlobalData("tagline_short", "Shader Witch, Technical Artist & cutesie Goth that loves Kittens.");
   eleventyConfig.addGlobalData("tagline_short-heart","Shader Witch, Technical Artist & cutesie Goth that loves Kittens. <i class=\"fa-regular fa-heart\"></i>");
+
+  eleventyConfig.addGlobalData("privacypolicy", "");
+  eleventyConfig.addGlobalData("cookiepolicy", "");
   
   // Passthrough copies (if needed)
-  eleventyConfig.addPassthroughCopy('assets/images');
-  eleventyConfig.addPassthroughCopy('assets/main.js');
+  eleventyConfig.addPassthroughCopy('src/images');
+  eleventyConfig.addPassthroughCopy('src/main.js');
 
   // Tailwind CSS processing
   eleventyConfig.on('eleventy.before', async () => {
-    const tailwindInputPath = path.resolve('./assets/styles/index.css');
-    const tailwindOutputPath = './dist/assets/styles/index.css';
+  const tailwindInputPath = path.resolve('./src/styles/index.css');
+  const tailwindOutputPath = './site/assets/styles/index.css';
 
     const cssContent = fs.readFileSync(tailwindInputPath, 'utf8');
 
@@ -46,6 +49,6 @@ export default function (eleventyConfig) {
   });
 
   return {
-    dir: { input: '.', output: 'dist' },
+  dir: { input: 'src', output: 'site' },
   };
 }

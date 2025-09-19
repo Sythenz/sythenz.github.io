@@ -1,0 +1,18 @@
+<!-- Sidebar -->
+<div class="sidebar bg-[var(--color-brand-header)] fixed top-0 right-0 w-full sm:w-100 h-full transform opacity-0 transition-all duration-350 translate-x-full peer-checked:opacity-100 peer-checked:translate-x-0 z-40 shadow-lg lg:hidden">
+    
+    <div class="flex flex-col justify-between pt-42 h-full">
+        <nav class="flex flex-col gap-6">
+            <a href="/" class="text-white uppercase px-16">Home</a>
+            <a href="/about" class="text-white uppercase px-16">Shader Witchcraft</a>
+            <a href="/contact" class="text-white uppercase px-16">Tools Alchemy</a>
+            <a href="/store" class="text-white uppercase px-16">Store</a>
+        </nav>
+
+        <div class="border-t-1 border-[var(--color-separator)] p-4">
+            {% from "macros/socials.njk" import socials %}
+            {{ socials("flex justify-center") }}
+        </div>
+    </div>
+
+</div>

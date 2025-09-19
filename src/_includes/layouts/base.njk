@@ -1,0 +1,11 @@
+
+  {% include "partials/head.njk" %}
+
+  {% from "macros/header.njk" import header %}
+    {{ header(true) }}
+    
+    <body class="bg-[var(--color-background)]" data-theme="">
+      {% block content %}{% endblock %}
+    </body>
+
+  {% include "partials/footer.njk" %}
