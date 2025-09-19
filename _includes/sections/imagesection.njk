@@ -1,8 +1,8 @@
-{% macro image_section(position="left", height="50vh", background="", foreground="", foregroundtransform="layer scale-[1.0] md:scale-[1.1] lg:translate-x-[10%] translate-y-[32%] md:translate-y-[32%] lg:translate-y-[0%]") %}
+{% macro image_section(position="left", height="h-[50vh]", background="", foreground="", foregroundtransform="layer scale-[1.0] md:scale-[1.1] lg:translate-x-[16%] translate-y-[32%] md:translate-y-[32%] lg:translate-y-[0%]") %}
 
-    {% set contentclasses="flex flex-col gap-4 col-span-2 lg:col-span-1 text-center lg:text-left px-10" %}
+    {% set contentclasses="flex flex-col gap-4 text-center lg:text-left" %}
 
-    <section class="relative grid min-h-[{{ height }}] h-full overflow-hidden place-items-center">
+    <section class="relative grid {{ height }} overflow-hidden place-items-center px-8 lg:px-0">
 
         {% if background %}
             <img src="{{ background }}" alt="" aria-hidden="true"
@@ -23,21 +23,21 @@
 
         {% endif %}
 
-        <div class="relative grid grid-cols-2 w-full max-w-xl z-10 lg:max-w-5xl lg:mt-0 {% if foreground %} mt-[-50%] md:mt-[-25%] {% endif %}">
+        <div class="relative grid grid-cols-3 gap-8 w-full max-w-xl z-10 lg:max-w-5xl lg:mt-0 {% if foreground %} mt-[-40%] md:mt-[-25%] {% endif %}">
 
             {% if position == "left" %}
 
-                <div class="{{ contentclasses | safe }}">
+                <div class="{{ contentclasses | safe }} col-span-3 lg:col-span-2 lg:text-left">
                     {{ caller() }}
                 </div>
 
-                <div class="hidden lg:inline-block"></div>
+                <div class="hidden lg:inline-block col-span-1"></div>
 
             {% else %}
 
-                <div class="hidden lg:inline-block"></div>
+                <div class="hidden lg:inline-block col-span-1"></div>
 
-                <div class="{{ contentclasses | safe }}">
+                <div class="{{ contentclasses | safe }} col-span-3 lg:col-span-2 lg:text-right">
                     {{ caller() }}
                 </div>
 

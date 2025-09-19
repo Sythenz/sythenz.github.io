@@ -94,4 +94,8 @@
     a {
         @apply text-white/40 font-normal hover:text-white/100 transition-colors duration-200 ease-in-out;
     }
+
+    a.footer-link {
+        @apply text-white/20 font-normal hover:text-white/100 transition-colors duration-200 ease-in-out;
+    }
 }

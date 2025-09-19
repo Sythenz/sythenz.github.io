@@ -1,6 +1,23 @@
-<footer class="bg-[var(--color-background-footer)] min-h-[30vh] flex flex-col justify-between">
-    <div class="container mx-auto">
-
+<footer class="bg-[var(--color-background-footer)] min-h-[40vh] flex flex-col">
+    <div class="w-[90vw] mx-auto grid grid-cols-6 gap-8 items-center flex-1">
+        <div class="col-span-3 flex flex-col gap-4">
+            <p class="">{{ tagline_full | safe }}</p>
+            {% from "partials/socials.njk" import socials %}
+            {{ socials("flex", "") }}
+        </div>
+        <div class="col-span-1"></div>
+        <ul class="col-span-1 flex flex-col gap-4">
+            <h2 class="text-lg">Site Links</h2>
+            <li><a class="footer-link" href="#">Unreal Garden</a></li>
+            <li><a class="footer-link" href="#">Tech Art Aid</a></li>
+            <li><a class="footer-link" href="#">Codekitten x Mitosaurus</a></li>
+        </ul>
+        <ul class="col-span-1 flex flex-col gap-4 ">
+            <h2 class="text-lg">Resources</h2>
+            <li><a class="footer-link" href="#">Unreal Garden</a></li>
+            <li><a class="footer-link" href="#">Tech Art Aid</a></li>
+            <li><a class="footer-link" href="#">Codekitten x Mitosaurus</a></li>
+        </ul>
     </div>
     {% include "partials/copyright.njk" %}
 </footer>

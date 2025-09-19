@@ -13,6 +13,10 @@ export default function (eleventyConfig) {
   // Add global data for the current mode
   eleventyConfig.addGlobalData("currentMode", currentMode);
 
+  eleventyConfig.addGlobalData("tagline_full", "Website of Alessa \"Codekitten\" Baker - Shader Witch, Technical Artist and cutesie goth who loves kittens <i class=\"fa-regular fa-heart\"></i>");
+  eleventyConfig.addGlobalData("tagline_short", "Shader Witch, Technical Artist & cutesie Goth that loves Kittens.");
+  eleventyConfig.addGlobalData("tagline_short-heart","Shader Witch, Technical Artist & cutesie Goth that loves Kittens. <i class=\"fa-regular fa-heart\"></i>");
+  
   // Passthrough copies (if needed)
   eleventyConfig.addPassthroughCopy('assets/images');
   eleventyConfig.addPassthroughCopy('assets/main.js');
