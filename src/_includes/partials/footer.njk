@@ -14,9 +14,9 @@
         </ul>
         <ul class="col-span-1 flex flex-col gap-4 ">
             <h2 class="text-lg">Resources</h2>
-            <li><a class="footer-link" href="#">Unreal Garden</a></li>
-            <li><a class="footer-link" href="#">Tech Art Aid</a></li>
-            <li><a class="footer-link" href="#">Codekitten x Mitosaurus</a></li>
+            {% for name, res in resources %}
+                <li><a class="footer-link" href="{{ res.url }}"{% if res.target %} target="{{ res.target }}"{% endif %}>{{ name }}</a></li>
+            {% endfor %}
         </ul>
     </div>
     {% include "partials/copyright.njk" %}

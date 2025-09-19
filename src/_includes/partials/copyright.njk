@@ -1,13 +1,12 @@
         <div class="bg-[var(--color-background-copyright)] p-3 text-center">
             <div class="container mx-auto">
                 <p class="m-0 text-xs! text-white/20">&copy; 2025 Codekitten. All rights reserved.</p>
-                <p class="m-0 text-xs! text-white/20 mb-1">Codekitten & the "Shader Witch" character, are copyright to Alessa Baker, Artist <a href="">Tobi Baraccani</a>.</p>
+                <p class="m-0 text-xs! text-white/20 mb-1">Codekitten & the "Shader Witch" character, are copyright to Alessa Baker, Artist <a target="{{ resources['Tobia Baraccani'].target }}" href="{{ resources['Tobia Baraccani'].url }}">Tobia Baraccani</a>.</p>
                 
                 {% if cookiepolicy or privacypolicy %}
                     <p class="m-0 text-xs! text-white/20">
                         {% if cookiepolicy %}<a href="{{ cookiepolicy }}">Cookie Policy</a> &bull; {% endif %}
                         {% if privacypolicy %}<a href="{{ privacypolicy }}">Privacy Policy</a>{% endif %}
                 {% endif %}
-                
             </div>
         </div>
