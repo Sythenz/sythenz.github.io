@@ -75,12 +75,12 @@
         @apply border-l-1 border-[var(--color-separator)];
     }
 
-    .header-scrolled {
+    .header {
         @apply bg-[var(--color-brand-header)] h-16 p-[var(--header-padding-scrolled)] transition-all duration-200 ease-in-out;
     }
 
-    .header {
-        @apply h-32 p-10 px-12 transition-all duration-200 ease-in-out;
+    .header-hero {
+        @apply h-32 p-10 px-12 transition-all duration-200 ease-in-out bg-transparent;
     }
 
     header a {
@@ -141,4 +141,16 @@
         @apply font-semibold;
         color: var(--color-text-bold);
     }
+
+    .fade-in {
+    opacity: 0;
+        animation: fadeIn 0.7s ease-in-out 0.3s forwards;
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+
 }
